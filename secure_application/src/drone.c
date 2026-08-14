@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "drone.h"
+#include "drone2.h"
 
 void initializeSystem(DroneSystem *system)
 {
@@ -27,13 +27,19 @@ int login(DroneSystem *system)
         strcmp(password, "admin123") == 0)
     {
         system->loggedIn = 1;
-        strcpy(system->username, username);
+
+        snprintf(system->username,
+                 sizeof(system->username),
+                 "%s",
+                 username);
 
         printf("\nLogin successful!\n");
+
         return 1;
     }
 
     printf("\nInvalid username or password.\n");
+
     return 0;
 }
 
@@ -46,9 +52,9 @@ void uploadWaypoints(DroneSystem *system)
     printf("Enter number of waypoints: ");
     scanf("%d", &count);
 
-    if (count > MAX_WAYPOINTS)
+    if (count <= 0 || count > MAX_WAYPOINTS)
     {
-        printf("Too many waypoints.\n");
+        printf("Invalid number of waypoints.\n");
         return;
     }
 
@@ -114,6 +120,11 @@ void displayTelemetry(DroneSystem *system)
 
         printf("Longitude  : %.4f\n",
                system->waypoints[0].longitude);
+    }
+    else
+    {
+        printf("Latitude   : N/A\n");
+        printf("Longitude  : N/A\n");
     }
 }
 
