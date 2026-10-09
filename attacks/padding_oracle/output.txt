@@ -1,0 +1,6 @@
+Original plaintext:  Padding oracle attacks recover plaintext without the AES key.
+Recovered plaintext: Padding oracle attacks recover plaintext without the AES key.
+Oracle queries: 8853
+Successful recovery: True
+Original ciphertext: 8e917ef7922f61e0f33957a5e6380e074a0263ab37519cc3dea93dd2ba4c9fc4bda3b31a45e1ca46d3798495a732a2fed0a61ad5d8d17230293bade4cae89fcd
+Initialization vector: 6c509c5abaf695d02b13997870e52d78
