@@ -1,0 +1,137 @@
+PADDING ORACLE ATTACK — PROJECT REQUIREMENTS
+=============================================
+
+1. PROJECT OVERVIEW
+-------------------
+This project demonstrates a Padding Oracle Attack against AES-CBC
+encryption using PKCS#7 padding. The attack should recover plaintext
+without directly accessing or using the AES secret key in the attack
+routine.
+
+The demonstration should be run only in a local, controlled environment
+or against systems for which explicit authorization has been granted.
+
+2. SOFTWARE REQUIREMENTS
+------------------------
+- Python 3.9 or later recommended
+- Google Colab or a local Python environment
+- PyCryptodome library for AES-CBC encryption/decryption in the
+  demonstration oracle and for PKCS#7 padding utilities
+- Internet access is needed only to install the dependency if it is
+  not already installed
+
+Install the dependency with:
+
+    pip install pycryptodome
+
+The Python dependency file, requirements.txt, should contain:
+
+    pycryptodome
+
+3. INPUTS
+---------
+The program should accept or generate:
+- An AES-CBC ciphertext
+- The corresponding 16-byte initialization vector (IV)
+- A padding-oracle function that returns whether decrypted data has
+  valid PKCS#7 padding
+
+The AES secret key must remain inside the simulated oracle. The attack
+routine must not receive, access, or use the key.
+
+4. FUNCTIONAL REQUIREMENTS
+--------------------------
+The implementation should:
+- Use AES-CBC with a 16-byte block size.
+- Use PKCS#7 padding for the demonstration message.
+- Provide an oracle that returns only a valid/invalid padding result.
+- Modify the ciphertext block immediately before the target block
+  (or the IV when targeting the first plaintext block).
+- Recover plaintext bytes from right to left.
+- Recover every plaintext block and reconstruct the complete padded
+  plaintext.
+- Remove PKCS#7 padding after recovery.
+- Count and report the number of oracle queries.
+- Display the recovered plaintext.
+- Verify the recovered plaintext against the original message in the
+  local demonstration, for testing purposes only.
+
+5. INPUT VALIDATION AND ERROR HANDLING
+--------------------------------------
+The program should check that:
+- The IV is exactly 16 bytes long.
+- Ciphertext is not empty.
+- Ciphertext length is a multiple of 16 bytes.
+- The target ciphertext block and preceding block are each 16 bytes.
+- Failure to recover a byte is reported clearly.
+- Invalid final padding is reported rather than silently accepted.
+
+6. ANALYSIS REQUIREMENTS
+------------------------
+The report should explain:
+- What AES-CBC is and how CBC decryption works.
+- What PKCS#7 padding is.
+- What a padding oracle reveals.
+- Why changing the preceding ciphertext block changes the corresponding
+  plaintext block.
+- Why bytes are recovered from right to left.
+- The actual number of oracle queries observed during execution.
+- The theoretical query estimate and why actual counts vary.
+
+A simple estimate is up to 256 candidate guesses per byte, or up to
+4,096 candidate guesses per 16-byte block, before accounting for any
+additional verification queries. Actual query counts depend on the
+candidate values found and the implementation.
+
+7. SECURITY RECOMMENDATIONS
+---------------------------
+The report should recommend:
+- Prefer authenticated encryption, such as AES-GCM, for new systems.
+- Verify authentication before processing decrypted plaintext.
+- If CBC must be used, authenticate the IV and ciphertext with a
+  correctly implemented Encrypt-then-MAC design and verify the MAC
+  before decryption or padding validation.
+- Avoid distinguishable error messages and timing behavior.
+- Do not expose a padding-validity oracle to untrusted callers.
+
+Using identical error messages alone is not a complete defense; timing
+and other side channels must also be considered.
+
+8. DELIVERABLES
+---------------
+Submit:
+- The completed Python program or Google Colab notebook
+- The recovered plaintext shown by a successful test run
+- The actual number of oracle queries
+- A short explanation of the attack
+- A short explanation of how padding oracle attacks can be prevented
+- requirements.txt listing Python package dependencies
+- A README.md describing the project and how to run it
+
+Suggested repository structure:
+
+    padding-oracle-attack/
+    |-- Padding_Oracle_Attack.ipynb
+    |-- README.md
+    |-- requirements.txt
+    `-- PROJECT_REQUIREMENTS.txt
+
+9. RUNNING THE PROJECT
+----------------------
+1. Install Python 3.9 or later, or open the notebook in Google Colab.
+2. Install the dependency:
+
+       pip install -r requirements.txt
+
+3. Run the notebook cells in order.
+4. Review the recovered plaintext and oracle query count.
+5. Include the actual output and analysis in the submission.
+
+10. IMPORTANT NOTE
+------------------
+PROJECT_REQUIREMENTS.txt documents the assignment and project
+requirements. It is not the package-installation file.
+
+requirements.txt is intentionally short because the code shown for
+this assignment needs only one third-party Python package:
+pycryptodome. Python standard-library modules do not need to be listed.
