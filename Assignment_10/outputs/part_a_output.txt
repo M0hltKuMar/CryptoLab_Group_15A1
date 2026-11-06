@@ -1,0 +1,22 @@
+===== PART A: MT19937 STREAM CIPHER =====
+
+1. Encryption and Decryption Test
+Original Message: Hello Cryptography
+Encrypted (Hex): 22de6ebdbced0fa8279e452af71d482f77a6
+Decrypted Message: Hello Cryptography
+Test Successful: True
+
+2. Generated Plaintext and Ciphertext
+Plaintext: G&mkGn\~/C;`y)JAAAAAAAAAAAAAA
+Actual Seed: 22732
+Ciphertext (Hex): 8abf9348660abd3f19d402aeb6d52b802d68446fd5f1b5d5a61568826f
+
+3. Brute Force Seed Recovery
+Searching all 65,536 possible seeds...
+Recovered Seed: 22732
+Recovered Plaintext: G&mkGn\~/C;`y)JAAAAAAAAAAAAAA
+
+4. Verification
+Seed Correct: True
+Plaintext Correct: True
+Known 14 A's Found: True

@@ -1,0 +1,19 @@
+===== PART B: PREDICTABLE RESET TOKEN =====
+
+1. Token Generation
+Original Timestamp: 1793980448
+Generated Token (Hex): 6569b798515ca8e995cb0632ebcc5e90
+
+2. Attacker Search
+Search Start: 1793980148
+Search End: 1793980748
+Search Interval: T-300 to T+300
+
+3. Prediction Results
+Total Timestamps Tested: 301
+Recovered Timestamp: 1793980448
+
+4. Verification
+Timestamp Correct: True
+Regenerated Token: 6569b798515ca8e995cb0632ebcc5e90
+Token Match: True
