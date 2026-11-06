@@ -1,0 +1,24 @@
+Base 2  : True
+Base 3  : True
+Base 5  : True
+Base 7  : True
+Base 11 : True
+Base 13 : True
+Base 17 : True
+Base 19 : True
+Base 23 : True
+Base 29 : True
+Base 31 : True
+Base 37 : True
+Base 41 : True
+Base 43 : True
+Base 47 : True
+Base 53 : True
+Base 59 : True
+Base 61 : True
+Base 67 : True
+Base 71 : True
+----- VERIFICATION -----
+Exact bit length: True
+Miller-Rabin result: True
+SymPy independent verification: True
