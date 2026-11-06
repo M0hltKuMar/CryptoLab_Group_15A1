@@ -1,0 +1,7 @@
+Parameter	Value
+Assigned bit length	512 bits
+Generated prime candidate	12192118274878575944213696095681576492072667290589471124379683283197886316589415150146630755554883042327160484554797315971706724558913820557720756474247789
+Actual bit length of candidate	512 bits
+Number of candidates tested	84
+Number of Miller–Rabin rounds	20
+Total execution time	0.0623038 seconds
