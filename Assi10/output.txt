@@ -1,0 +1,18 @@
+Bit Distribution
+Ones: 4194620
+Zeros: 4193988
+One-bit proportion: 0.500037670135498
+Binomial test p-value: 0.8275354946915736
+c:\Users\aryan\Desktop\CF\analyse.py:63: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+
+Repeated 16-byte Blocks
+Total blocks: 65536
+Repeated blocks: 0
+Longest identical-byte run: 3
+
+Serial Correlation
+Lag-1 correlation: -2.0591855763909784e-05
+
+Runs Test
+Number of runs: 4192009
